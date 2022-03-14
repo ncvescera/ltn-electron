@@ -1,0 +1,27 @@
+#test {
+    background-color: rgba(206, 197, 197, 0.445);
+    height: calc(100% - 110px);
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#note {
+    margin: 10px;
+    height: calc(100% - 20px);
+    display: block;
+    overflow-y: auto;
+}
+
+#footerr {
+    position:absolute;
+    bottom:0;
+    width: fit-content;
+ }
+
+ input[type=text] {
+    width: 100%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
