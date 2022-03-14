@@ -19,9 +19,15 @@
     width: fit-content;
  }
 
- input[type=text] {
+.textbox {
     width: 100%;
     padding: 5px 5px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
+}
+
+.textbox:focus{
+    outline:none;
+    border-color:blue;
+    box-shadow:0 0 10px blue;
+}
