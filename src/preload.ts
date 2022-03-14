@@ -5,12 +5,14 @@ const ipc = ipcRenderer
 
 
 window.addEventListener("DOMContentLoaded", () => {
+    //eliminare successivamente
     const element = document.getElementById('note');
     if (element)
     for (let i = 0; i < 1000; i++) {
         element.innerHTML += 'Hello World from the preload script ! !<br>';
     }
-
+    // ------------//
+    
     const minButton = document.getElementById('min-button')!;
     const maxButton = document.getElementById('max-button')!;
     const restoreButton = document.getElementById('restore-button')!;
