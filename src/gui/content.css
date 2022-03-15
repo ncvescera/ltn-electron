@@ -40,7 +40,7 @@
     box-shadow:0 0 10px blue;
 }
 
-#main span {
+#main .nota {
     display: block;
     font-size: large;
     font-family: 'Courier New', Courier, monospace;
@@ -56,4 +56,12 @@
 
 #main span.barred {
     text-decoration: line-through;
+}
+
+.tool {
+    width: 30px;
+    height: 30px;
+    vertical-align:middle;
+    margin-left: 5px;
+    margin-right: 5px;
 }

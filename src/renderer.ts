@@ -24,7 +24,40 @@ textobx.addEventListener('keypress', (event: KeyboardEvent) => {
 
 function addNote(note: string): void {
     const newNote = document.createElement('span');
-    newNote.innerText = note;
+    newNote.classList.add('nota');
+
+    const words = note.split(' ');
+    words.forEach(word => {
+        switch (word) {
+            case 'ammo':
+                newNote.appendChild(generateImage('ammo'));
+                break;
+            
+            case 'medic':
+            case 'med':
+            case 'medkit':
+                newNote.appendChild(generateImage('med'));
+                break;
+            
+            case 'tool':
+                newNote.appendChild(generateImage('tool'));
+                break;
+            
+            case 'disinfect':
+            case 'disinfection':
+            case 'dis':
+            case 'pack':
+                newNote.appendChild(generateImage('disinfect'));
+                break;
+            
+            default:
+                const text = document.createElement('span');
+                text.textContent = ` ${word} `
+                newNote.appendChild(text);
+        }
+    });
+
+    
 
     // for right click
     newNote.addEventListener('contextmenu', (event: MouseEvent) => {
@@ -37,7 +70,19 @@ function addNote(note: string): void {
     })
 
     notes.appendChild(newNote);
+
 }
+
+
+function generateImage(type: 'tool'|'ammo'|'med'|'disinfect'): HTMLImageElement {
+    const img = document.createElement('img');
+    img.src = `./gtfoIcons/${type}.png`;
+    img.classList.add('tool');
+
+    return img
+}
+
+
 
 // potrebbe essere spostata in addNote
 function manageNote(note: HTMLSpanElement, event: MouseEvent): void {
