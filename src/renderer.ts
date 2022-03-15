@@ -17,6 +17,7 @@ textobx.addEventListener('keypress', (event: KeyboardEvent) => {
 
         addNote(textobx.value);
         textobx.value = '';
+        notes.scrollTo(0, notes.scrollHeight);  // scroll to bottom
     }
 });
 
