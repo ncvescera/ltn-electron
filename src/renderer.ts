@@ -55,7 +55,9 @@ function manageNote(note: HTMLSpanElement, event: MouseEvent): void {
         case 2:
             console.log('Right click');
             notes.removeChild(note);
-            
+
             break;
     }
 }
+
+//const reg = new RegExp('^(\\d+)')

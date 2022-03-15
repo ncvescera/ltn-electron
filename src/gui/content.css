@@ -32,11 +32,11 @@
     box-shadow:0 0 10px blue;
 }
 
-span {
+#main span {
     display: block;
     font-size: large;
     font-family: 'Courier New', Courier, monospace;
-    
+
     /* unselectable */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -46,6 +46,6 @@ span {
     user-select: none;
 }
 
-span.barred {
+#main span.barred {
     text-decoration: line-through;
 }
