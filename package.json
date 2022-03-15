@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc",
-    "html": "cp -r ./src/gui/* dist/ && cp -r ./src/gui/icons dist",
-    "start": "npm run build && npm run html && electron ./dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc",
+    "files": "cp -r ./src/gui/* dist/ && cp -r ./src/gui/icons dist",
+    "build": "npm run files && npm run compile",
+    "start": "npm run build && electron ./dist/main.js"
   },
   "keywords": [],
   "author": "",
