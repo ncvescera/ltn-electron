@@ -1,22 +1,30 @@
-#test {
+#main-box {
+    display: flex;
+    flex-flow: column;
+    height: 92%;
+}
+
+#note-box {
     background-color: rgba(206, 197, 197, 0.445);
-    height: calc(100% - 110px);
-    display: block;
+    flex:  1;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 }
 
 #note {
-    margin: 10px;
-    height: calc(100% - 20px);
-    display: block;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    position: absolute;
+    height: auto;
+    width: auto;
     overflow-y: auto;
 }
 
-#footerr {
-    position:absolute;
-    bottom:0;
-    width: fit-content;
+#footer {
+    display: block;
  }
 
 .textbox {
