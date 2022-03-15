@@ -12,7 +12,8 @@ function createWindow() {
     minHeight: 380,
     frame: false,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: true,    // capire meglio come funziona sta roba
+      contextIsolation: false,  // capire meglio come funziona sta roba
       preload: path.join(__dirname, "preload.js"),
     },
   });
