@@ -34,7 +34,9 @@
 
 span {
     display: block;
-
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    
     /* unselectable */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
