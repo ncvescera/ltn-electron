@@ -92,3 +92,7 @@
     width: fit-content;
     height: fit-content;
   }
+
+.end {
+    filter: brightness(.5);
+}
