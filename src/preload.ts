@@ -13,10 +13,10 @@ window.addEventListener("DOMContentLoaded", () => {
     //}
     // ------------//
     
-    const minButton = document.getElementById('min-button')!;
-    const maxButton = document.getElementById('max-button')!;
-    const restoreButton = document.getElementById('restore-button')!;
-    const closeButton = document.getElementById('close-button')!;
+    const minButton = <HTMLButtonElement>document.getElementById('min-button');
+    const maxButton = <HTMLButtonElement>document.getElementById('max-button');
+    const restoreButton = <HTMLButtonElement>document.getElementById('restore-button');
+    const closeButton = <HTMLButtonElement>document.getElementById('close-button');
 
     closeButton.addEventListener("click", event => {
         ipc.send('closeApp');
@@ -39,4 +39,3 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 })
 
-// listener per gestione finestra
