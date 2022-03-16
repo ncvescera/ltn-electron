@@ -8,7 +8,10 @@ class Nota {
 
         this.elem.classList.add('nota');
 
+        /** @type {Array<string>} */        
         const words = this.text.split(' ');
+
+        /** @type {Map<string, number>} */   
         const map = words.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()); // dizionario parola: occorrenze
 
 
