@@ -6,17 +6,17 @@
 // needed in the renderer process.
 
 console.log('RENDEREER');
-console.log(window.myAPI.desktop);
+//console.log(window.myAPI.desktop);
 
 const noteManager = new NoteManager('note');
-const textobx = document.getElementById("input");
+const textBox = document.getElementById("input");
 
-textobx.addEventListener('keypress', (event) => {
+textBox.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-      console.log(textobx.value);
+      console.log(textBox.value);
 
-      noteManager.addNote(textobx.value);
-      textobx.value = '';
+      noteManager.addNote(textBox.value);
+      textBox.value = '';
   }
 });
 

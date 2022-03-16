@@ -50,9 +50,9 @@ class Nota {
         })
 
         // for left click
-        this.elem.addEventListener('click', (event) => {
+        /*this.elem.addEventListener('click', (event) => {
             this.#manageNote(this, event);
-        })
+        })*/
     }
 
     toHtml() {
