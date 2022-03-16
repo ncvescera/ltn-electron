@@ -1,8 +1,8 @@
-export class Nota {
-    text: string;
-    elem: HTMLSpanElement;
+class Nota {
+    text;
+    elem;
 
-    constructor(text: string) {
+    constructor(text) {
         this.text = text;
         this.elem = document.createElement('span');
 
@@ -15,24 +15,24 @@ export class Nota {
         map.forEach( (value, word) => {
             switch (word) {
                 case 'ammo':
-                    this.elem.appendChild(this.generateImage('ammo', value));
+                    this.elem.appendChild(this.#generateImage('ammo', value));
                     break;
                 
                 case 'medic':
                 case 'med':
                 case 'medkit':
-                    this.elem.appendChild(this.generateImage('med', value));
+                    this.elem.appendChild(this.#generateImage('med', value));
                     break;
                 
                 case 'tool':
-                    this.elem.appendChild(this.generateImage('tool', value));
+                    this.elem.appendChild(this.#generateImage('tool', value));
                     break;
                 
                 case 'disinfect':
                 case 'disinfection':
                 case 'dis':
                 case 'pack':
-                    this.elem.appendChild(this.generateImage('disinfect', value));
+                    this.elem.appendChild(this.#generateImage('disinfect', value));
                     break;
                 
                 default:
@@ -45,33 +45,33 @@ export class Nota {
         
 
         // for right click
-        this.elem.addEventListener('contextmenu', (event: MouseEvent) => {
-            this.manageNote(this.elem, event);
+        this.elem.addEventListener('contextmenu', (event) => {
+            this.#manageNote(this, event);
         })
 
         // for left click
-        this.elem.addEventListener('click', (event: MouseEvent) => {
-            this.manageNote(this.elem, event);
+        this.elem.addEventListener('click', (event) => {
+            this.#manageNote(this, event);
         })
     }
 
-    toHtml(): HTMLSpanElement {
+    toHtml() {
         return this.elem;
     }
 
-    private generateImage(type: 'tool'|'ammo'|'med'|'disinfect', value: number): HTMLSpanElement {
+    #generateImage(type, value) {
         const container = document.createElement('span');
         const text = document.createElement('div');
         const img = document.createElement('img');
         
-        img.src = `./gtfoIcons/${type}.png`;
+        img.src = `./assets/icon/gtfoIcons/${type}.png`;
         text.innerText = `x${value}`;
         
         container.classList.add('container');
         img.classList.add('tool');
         text.classList.add('bottom-right');
 
-        img.addEventListener('click', (event: MouseEvent) => {
+        img.addEventListener('click', (event) => {
             if (event.button === 0) {
                 let number = parseInt(text.innerText.substring(1));
 
@@ -91,9 +91,10 @@ export class Nota {
         return container;
     }
 
-    private manageNote(note: HTMLSpanElement, event: MouseEvent): void {
+    #manageNote(note, event) {
         console.log('Managing note');
-        console.log(note.textContent);
+        //console.log(note.textContent);
+        console.log(note.text);
     
         switch (event.button) {
             case 0:
@@ -107,7 +108,7 @@ export class Nota {
                 break;
             case 2:
                 console.log('Right click');
-                this.elem.remove();
+                note.elem.remove();
                 break;
         }
     }

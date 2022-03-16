@@ -1,8 +1,8 @@
-export class NoteManager {
-    notes: HTMLDivElement;
+class NoteManager {
+    notes;
 
-    constructor(element_id: string) {
-        const tmp = <HTMLDivElement>document.getElementById(element_id);
+    constructor(element_id) {
+        const tmp = document.getElementById(element_id);
         
         // deve essere un id valido
         if (tmp == null) {
@@ -13,7 +13,7 @@ export class NoteManager {
         this.notes = tmp;
     }
 
-    addNote(text: string): void {
+    addNote(text) {
         this.notes.appendChild(new Nota(text).toHtml());
         this.notes.scrollTo(0, this.notes.scrollHeight);  // scroll to bottom
     }

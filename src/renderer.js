@@ -4,21 +4,20 @@
 // nodeIntegration is set to true in webPreferences.
 // Use preload.js to selectively enable features
 // needed in the renderer process.
-console.log('RENDEREER');
 
-const {Nota} = require('./Nota');
-const {NoteManager} = require('./NoteManager');
+console.log('RENDEREER');
+console.log(window.myAPI.desktop);
 
 const noteManager = new NoteManager('note');
-const textobx = <HTMLInputElement>document.getElementById("input");
+const textobx = document.getElementById("input");
 
-textobx.addEventListener('keypress', (event: KeyboardEvent) => {
-    if (event.key === 'Enter') {
-        console.log(textobx.value);
+textobx.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+      console.log(textobx.value);
 
-        noteManager.addNote(textobx.value);
-        textobx.value = '';
-    }
+      noteManager.addNote(textobx.value);
+      textobx.value = '';
+  }
 });
 
 //const reg = new RegExp('^(\\d+)')
