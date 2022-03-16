@@ -59,6 +59,12 @@ class Nota {
         return this.elem;
     }
 
+    /**
+     * 
+     * @param {'ammo'|'med'|'tool'|'disinfect'} type 
+     * @param {number} value 
+     * @returns {HTMLSpanElement}
+     */
     #generateImage(type, value) {
         const container = document.createElement('span');
         const text = document.createElement('div');
@@ -91,6 +97,11 @@ class Nota {
         return container;
     }
 
+    /**
+     * 
+     * @param {Nota} note 
+     * @param {MouseEvent} event 
+     */
     #manageNote(note, event) {
         console.log('Managing note');
         //console.log(note.textContent);
