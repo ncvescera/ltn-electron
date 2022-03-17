@@ -92,6 +92,6 @@ export class Nota {
     }
 
     private isRoom(room: string): boolean {
-        return /^\d+.$/.test(room); // constrolla se la stringa è della forma numeri + singolo carattere
+        return /^\d+[a-zA-z]$/.test(room); // constrolla se la stringa è della forma numeri + singolo carattere
     }
 }
