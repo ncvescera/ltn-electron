@@ -40,7 +40,11 @@ export class Nota {
                     this.elem.appendChild(this.generateImage('disinfect', value));
                     this.text = this.text.replace(word, 'disinfect');
                     break;
-                
+
+                case ' ':   //ignora troppi spazi
+                case '':
+                    break;
+
                 default:
                     const text = document.createElement('span');
                     text.textContent = ` ${word} `
