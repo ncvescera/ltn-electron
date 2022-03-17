@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "compile": "tsc",
-    "files": "cp -r ./src/gui/* dist/ && cp -r ./src/gui/icons dist",
+    "files": "cp -r ./src/assets dist/",
     "build": "npm run files && npm run compile",
     "start": "npm run build && electron ./dist/main.js"
   },

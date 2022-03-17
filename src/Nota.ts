@@ -64,7 +64,7 @@ export class Nota {
         const text = document.createElement('div');
         const img = document.createElement('img');
         
-        img.src = `./gtfoIcons/${type}.png`;
+        img.src = `./icon/gtfoIcons/${type}.png`;
         text.innerText = `x${value}`;
         
         container.classList.add('container');
