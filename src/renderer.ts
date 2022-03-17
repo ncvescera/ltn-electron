@@ -6,18 +6,16 @@
 // needed in the renderer process.
 
 console.log('RENDEREER');
-//console.log(window.myAPI.desktop);
 
-const noteManager = new NoteManager('note');
-const textBox = document.getElementById("input");
+const textobx = <HTMLInputElement>document.getElementById("input");
 
-textBox.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-      console.log(textBox.value);
+textobx.addEventListener('keypress', (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+        console.log(textobx.value);
 
-      noteManager.addNote(textBox.value);
-      textBox.value = '';
-  }
+        window.manageNotes.addNote(textobx.value);  //chiamata API a preload.ts
+        textobx.value = '';
+    }
 });
 
 //const reg = new RegExp('^(\\d+)')

@@ -1,41 +1,38 @@
-class Nota {
-    text;
-    elem;
+export class Nota {
+    text: string;
+    elem: HTMLSpanElement;
 
-    constructor(text) {
+    constructor(text: string) {
         this.text = text;
         this.elem = document.createElement('span');
 
         this.elem.classList.add('nota');
 
-        /** @type {Array<string>} */        
         const words = this.text.split(' ');
-
-        /** @type {Map<string, number>} */   
         const map = words.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()); // dizionario parola: occorrenze
 
 
         map.forEach( (value, word) => {
             switch (word) {
                 case 'ammo':
-                    this.elem.appendChild(this.#generateImage('ammo', value));
+                    this.elem.appendChild(this.generateImage('ammo', value));
                     break;
                 
                 case 'medic':
                 case 'med':
                 case 'medkit':
-                    this.elem.appendChild(this.#generateImage('med', value));
+                    this.elem.appendChild(this.generateImage('med', value));
                     break;
                 
                 case 'tool':
-                    this.elem.appendChild(this.#generateImage('tool', value));
+                    this.elem.appendChild(this.generateImage('tool', value));
                     break;
                 
                 case 'disinfect':
                 case 'disinfection':
                 case 'dis':
                 case 'pack':
-                    this.elem.appendChild(this.#generateImage('disinfect', value));
+                    this.elem.appendChild(this.generateImage('disinfect', value));
                     break;
                 
                 default:
@@ -48,39 +45,33 @@ class Nota {
         
 
         // for right click
-        this.elem.addEventListener('contextmenu', (event) => {
-            this.#manageNote(this, event);
+        this.elem.addEventListener('contextmenu', (event: MouseEvent) => {
+            this.manageNote(this.elem, event);
         })
 
         // for left click
-        /*this.elem.addEventListener('click', (event) => {
-            this.#manageNote(this, event);
-        })*/
+        this.elem.addEventListener('click', (event: MouseEvent) => {
+            this.manageNote(this.elem, event);
+        })
     }
 
-    toHtml() {
+    toHtml(): HTMLSpanElement {
         return this.elem;
     }
 
-    /**
-     * 
-     * @param {'ammo'|'med'|'tool'|'disinfect'} type 
-     * @param {number} value 
-     * @returns {HTMLSpanElement}
-     */
-    #generateImage(type, value) {
+    private generateImage(type: 'tool'|'ammo'|'med'|'disinfect', value: number): HTMLSpanElement {
         const container = document.createElement('span');
         const text = document.createElement('div');
         const img = document.createElement('img');
         
-        img.src = `./assets/icon/gtfoIcons/${type}.png`;
+        img.src = `./gtfoIcons/${type}.png`;
         text.innerText = `x${value}`;
         
         container.classList.add('container');
         img.classList.add('tool');
         text.classList.add('bottom-right');
 
-        img.addEventListener('click', (event) => {
+        img.addEventListener('click', (event: MouseEvent) => {
             if (event.button === 0) {
                 let number = parseInt(text.innerText.substring(1));
 
@@ -100,15 +91,9 @@ class Nota {
         return container;
     }
 
-    /**
-     * 
-     * @param {Nota} note 
-     * @param {MouseEvent} event 
-     */
-    #manageNote(note, event) {
+    private manageNote(note: HTMLSpanElement, event: MouseEvent): void {
         console.log('Managing note');
-        //console.log(note.textContent);
-        console.log(note.text);
+        console.log(note.textContent);
     
         switch (event.button) {
             case 0:
@@ -122,7 +107,7 @@ class Nota {
                 break;
             case 2:
                 console.log('Right click');
-                note.elem.remove();
+                this.elem.remove();
                 break;
         }
     }
