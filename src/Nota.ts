@@ -43,7 +43,7 @@ export class Nota {
         });
 
         
-
+        /*
         // for right click
         this.elem.addEventListener('contextmenu', (event: MouseEvent) => {
             this.manageNote(this.elem, event);
@@ -52,7 +52,7 @@ export class Nota {
         // for left click
         this.elem.addEventListener('click', (event: MouseEvent) => {
             this.manageNote(this.elem, event);
-        })
+        })*/
     }
 
     toHtml(): HTMLSpanElement {
