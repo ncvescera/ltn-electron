@@ -1,6 +1,7 @@
 export class Nota {
     text: string;
-    elem: HTMLSpanElement;
+    private elem: HTMLSpanElement;
+    room: string;
 
     constructor(text: string) {
         this.text = text;
@@ -9,6 +10,7 @@ export class Nota {
         this.elem.classList.add('nota');
 
         const words = this.text.split(' ');
+        this.room = ((this.isRoom(words[0])) ? words[0] : '');  // controlla se è presente la stanza
         const map = words.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()); // dizionario parola: occorrenze
 
 
@@ -16,16 +18,19 @@ export class Nota {
             switch (word) {
                 case 'ammo':
                     this.elem.appendChild(this.generateImage('ammo', value));
+                    this.text = this.text.replace(word, 'ammo');
                     break;
                 
                 case 'medic':
                 case 'med':
                 case 'medkit':
                     this.elem.appendChild(this.generateImage('med', value));
+                    this.text = this.text.replace(word, 'med');
                     break;
                 
                 case 'tool':
                     this.elem.appendChild(this.generateImage('tool', value));
+                    this.text = this.text.replace(word, 'tool');
                     break;
                 
                 case 'disinfect':
@@ -33,6 +38,7 @@ export class Nota {
                 case 'dis':
                 case 'pack':
                     this.elem.appendChild(this.generateImage('disinfect', value));
+                    this.text = this.text.replace(word, 'disinfect');
                     break;
                 
                 default:
@@ -41,18 +47,6 @@ export class Nota {
                     this.elem.appendChild(text);
             }
         });
-
-        
-        /*
-        // for right click
-        this.elem.addEventListener('contextmenu', (event: MouseEvent) => {
-            this.manageNote(this.elem, event);
-        })
-
-        // for left click
-        this.elem.addEventListener('click', (event: MouseEvent) => {
-            this.manageNote(this.elem, event);
-        })*/
     }
 
     toHtml(): HTMLSpanElement {
@@ -73,7 +67,7 @@ export class Nota {
 
         img.addEventListener('click', (event: MouseEvent) => {
             if (event.button === 0) {
-                let number = parseInt(text.innerText.substring(1));
+                let number = parseInt(text.innerText.substring(1)); // elimina il carattere x (e.g. x2) e casta ad int il numero
 
                 if (number != 0) {
                     number--;
@@ -81,6 +75,8 @@ export class Nota {
                         img.classList.add('end');
                     }
                     text.innerText = `x${number}`;
+                    this.text = this.text.replace(type, '').replace('  ', ' ');    // elimina la parola dal testo
+                    console.log(this.text);
                 } 
             }
         })
@@ -91,24 +87,7 @@ export class Nota {
         return container;
     }
 
-    private manageNote(note: HTMLSpanElement, event: MouseEvent): void {
-        console.log('Managing note');
-        console.log(note.textContent);
-    
-        switch (event.button) {
-            case 0:
-                /*
-                console.log('Left click');
-                note.classList.toggle('barred');
-                */
-                break;
-            case 1:
-                console.log('Middle click');
-                break;
-            case 2:
-                console.log('Right click');
-                this.elem.remove();
-                break;
-        }
+    private isRoom(room: string): boolean {
+        return /^\d+.$/.test(room); // constrolla se la stringa è della forma numeri + singolo carattere
     }
 }
