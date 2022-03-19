@@ -1,6 +1,5 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const ipc = ipcMain;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -11,46 +10,21 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 380,
+    width: 800,
     height: 600,
-    minWidth: 380,
-    minHeight: 380,
-    frame: false,
+    //frame: false,
     webPreferences: {
-      //nodeIntegration: true,    // capire meglio come funziona sta roba
-      contextIsolation: true,  // capire meglio come funziona sta roba
-      preload: path.join(__dirname, "preload.js"),
-      //devTools: false,
-    },
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: false,
+      contextIsolation: true,
+    }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
-
-  // Gestione bottoni title bar
-  ipc
-    .on("closeApp", (event, arg) => {
-      console.log('closing app');
-      mainWindow.close();
-    })
-
-    .on("minApp", (event, arg) => {
-      console.log('minimizing app');
-      mainWindow.minimize();
-    })
-
-    .on("maxApp", (event, arg) => {
-      console.log('maximizing app');
-      mainWindow.maximize();
-    })
-
-    .on("restoreApp", (event, arg) => {
-      console.log('restoring app');
-      mainWindow.restore();
-    });
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
