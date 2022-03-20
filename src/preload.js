@@ -1,6 +1,10 @@
-console.log('PRELOAD');
-const { contextBridge } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron')
+const ipc = ipcRenderer
 
-contextBridge.exposeInMainWorld('API', {
-    test: () => { return 'OK!' }
+contextBridge.exposeInMainWorld('windowButtonsAPI', {
+    close: () => {ipc.send('closeApp');},
+    min: () => {ipc.send('minApp');},
+    max: () => {ipc.send('maxApp');}
 })
+
+console.log('PRELOAD')

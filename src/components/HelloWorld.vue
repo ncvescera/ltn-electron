@@ -1,6 +1,7 @@
 <template>
     <h1>HELLO WORLD</h1>
     <span> {{ message }}</span>
+    <img src="../assets/icon/gtfoIcons/ammo.png" />
 </template>
 
 <script>
