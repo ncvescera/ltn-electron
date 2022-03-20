@@ -1,14 +1,17 @@
 <template>
   <TitleBar title="Let Them Note" />
+  <MainBox />
 </template>
 
 <script>
 import TitleBar from './components/TitleBar.vue'
+import MainBox from './components/MainBox.vue'
 
 export default {
   name: 'App',
   components: {
-    TitleBar
+    TitleBar,
+    MainBox,
   }
 }
 </script>
@@ -39,5 +42,10 @@ export default {
     color: #FFF;
     border: 1px solid #48545c;
     overflow-y: hidden;
+  }
+
+  #app {
+      width: auto;
+      height: 100%;
   }
 </style>

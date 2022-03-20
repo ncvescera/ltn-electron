@@ -9,11 +9,17 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+
+const minWidth = 350;
+const minHeight = 600;
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: minWidth,
+    height: minHeight,
+    minWidth: minWidth,
+    minHeight:minHeight,
     frame: false,
     //icon: path.join(__dirname, 'assets/icon/favicon.ico'),
     webPreferences: {
