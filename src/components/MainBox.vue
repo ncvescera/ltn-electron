@@ -31,5 +31,6 @@ export default {
         right: 0;
         bottom: 0;
         top: 20px;
+        margin-bottom: 10px;
     }
 </style>
