@@ -40,6 +40,10 @@ export default {
 
 <style scoped>
   #titlebar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
     display: block;
     background: #030f18;
     width: auto;
