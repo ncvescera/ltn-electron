@@ -12,7 +12,14 @@ export default {
     },
     methods: {
         inputManager(event)  {
+            const value = this.testo;
+            const array_value = value.split(' ');
+
+            const result = {room: array_value[0], items: array_value.slice(1)};
             this.testo = '';
+
+            this.$emit('new-note', result);
+            //console.log(result);
         },
     }
 }
