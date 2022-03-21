@@ -23,12 +23,13 @@ export default {
 <style >
 
 #note-box {
-    background: red;
+    background-color: rgba(206, 197, 197, 0.445);
     width: 100%;
     height: auto;
     position: absolute;
     top: 45px;
     bottom: 45px;
+    border-radius: 5px;
   
 }
 #footer {
