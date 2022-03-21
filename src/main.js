@@ -10,7 +10,7 @@ if (require('electron-squirrel-startup')) {
 }
 
 
-const minWidth = 350;
+const minWidth = 360;
 const minHeight = 600;
 
 const createWindow = () => {

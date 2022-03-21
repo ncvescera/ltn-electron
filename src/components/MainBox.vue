@@ -6,7 +6,7 @@
 -->
 <template>
     <div id="main">
-        <h1>Resources Notes 📋</h1>
+        <div class="a"><h1>Resources Notes 📋</h1></div>
         <NoteManager />
     </div>
 </template>
@@ -22,10 +22,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
     #main {
-        margin: 10px 5% 10px 5%; /* potrebbero essere tutti convertiti in px */
+        position: fixed;
+        margin: 20px; /* potrebbero essere tutti convertiti in px */
         width: auto;
-        height: auto;
+        left:  0;
+        right: 0;
+        bottom: 0;
+        top: 20px;
     }
 </style>

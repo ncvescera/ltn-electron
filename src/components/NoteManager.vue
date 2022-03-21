@@ -1,11 +1,12 @@
 <template>
-    <div id="note-box">
-        <div id="note"></div>
-    </div>
+        <div id="note-box" class="b">
+            <div id="note">
+            </div>
+        </div>
 
-    <div id="footer">    
-        <TextBox />
-    </div>
+        <div id="footer" class="c">    
+            <TextBox />
+        </div>
 </template>
 
 <script>
@@ -19,6 +20,24 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+
+#note-box {
+    background: red;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 45px;
+    bottom: 45px;
+  
+}
+#footer {
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 
 </style>
