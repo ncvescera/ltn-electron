@@ -20,8 +20,8 @@ const createWindow = () => {
     height: minHeight,
     minWidth: minWidth,
     minHeight:minHeight,
+    //icon: path.join(__dirname, 'src/assets/logo/logo.png'),
     frame: false,
-    //icon: path.join(__dirname, 'assets/icon/favicon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
