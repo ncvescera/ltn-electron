@@ -1,4 +1,7 @@
 <template>
+    <div id="main">
+        <div class="a"><h1>Resources Notes <span class="click" @click="clear">📋</span></h1></div>
+        
         <div id="note-box" class="b">
             <div id="note">
                 <Note v-for="note in notes" :key="note.room" :room="note.room" :items="note.items"/>
@@ -8,6 +11,7 @@
         <div id="footer" class="c">    
             <TextBox @new-note="newNote"/>
         </div>
+    </div>
 </template>
 
 <script>
@@ -36,12 +40,34 @@ export default {
 
             // se la nota esiste la aggiorna, altrimenti ne aggiunge una nuova
             noteIndex === -1 ? this.notes.push(note) : this.notes[noteIndex].items.push(...note.items);
-        }
+        },
+        clear() {
+            this.notes = [];
+        },
     }
 }
 </script>
 
 <style >
+#main {
+        position: fixed;
+        margin: 20px; /* potrebbero essere tutti convertiti in px */
+        width: auto;
+        left:  0;
+        right: 0;
+        bottom: 0;
+        top: 20px;
+        margin-bottom: 10px;
+    }
+    .click {
+        cursor: pointer;
+        width: auto;
+        height: auto;
+        padding: 2px;
+    }
+    .click:hover {
+        background: red;    /* todo: modificale rolore */
+    }
 
 #note-box {
     background-color: rgba(206, 197, 197, 0.445);

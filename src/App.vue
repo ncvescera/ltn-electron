@@ -1,17 +1,17 @@
 <template>
   <TitleBar title="Let Them Note" />
-  <MainBox />
+  <NoteManager />
 </template>
 
 <script>
 import TitleBar from './components/TitleBar.vue'
-import MainBox from './components/MainBox.vue'
+import NoteManager from './components/NoteManager.vue'
 
 export default {
   name: 'App',
   components: {
     TitleBar,
-    MainBox,
+    NoteManager
   }
 }
 </script>
