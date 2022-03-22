@@ -1,8 +1,8 @@
 {
-  "name": "my-new-app-vue",
-  "productName": "my-new-app-vue",
+  "name": "ltn-electron",
+  "productName": "Let Them Note - App",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Cross-platform desktop application for note down GTFO The Game resources.",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -11,7 +11,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
-  "keywords": [],
+  "keywords": ["electron", "application", "desktop", "gtfo", "gmae", "resources", "note"],
   "author": {
     "name": "Nicolò Vescera",
     "email": "nicolo.vescera@gmail.com"
