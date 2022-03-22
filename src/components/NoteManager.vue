@@ -1,6 +1,6 @@
 <template>
     <div id="main">
-        <div class="a"><h1>Resources Notes <span class="click" @click="clear">📋</span></h1></div>
+        <div class="a"><h1>Resources Notes <ClearButton @clear="clear"/></h1></div>
         
         <div id="note-box" class="b">
             <div id="note">
@@ -17,13 +17,15 @@
 <script>
 import TextBox from './TextBox.vue'
 import Note from './Note.vue'
+import ClearButton from './ClearButton.vue';
 
 export default {
     name: 'NoteManager',
     components: {
-        TextBox,
-        Note,
-    },
+    TextBox,
+    Note,
+    ClearButton
+},
     data() {
         return {
             notes: [
@@ -48,7 +50,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 #main {
         position: fixed;
         margin: 20px; /* potrebbero essere tutti convertiti in px */
@@ -59,15 +61,7 @@ export default {
         top: 20px;
         margin-bottom: 10px;
     }
-    .click {
-        cursor: pointer;
-        width: auto;
-        height: auto;
-        padding: 2px;
-    }
-    .click:hover {
-        background: red;    /* todo: modificale rolore */
-    }
+    
 
 #note-box {
     background-color: rgba(206, 197, 197, 0.445);
