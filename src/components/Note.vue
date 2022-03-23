@@ -1,22 +1,26 @@
 <template>
     <div>
         <span id="room">{{room}}</span>
-        <span v-for="item in items" :key="item"> {{item}} </span>
+        <Resource v-for="item in items" :key="item" :value="item" />
     </div>
-
 </template>
 
 <script>
+import Resource from "./Resource.vue"
+
 export default {
     name: 'Note',
+    components: {
+        Resource,
+    },
     props: {
         room: String,
         items: Array,
        
     },
     components: {
-        
-    }
+    Resource
+}
 }
 </script>
 
