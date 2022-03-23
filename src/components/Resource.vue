@@ -1,7 +1,7 @@
 <template>
     <span v-if="!isImg">{{ _value }}</span>
 
-    <span class="container" v-if="isImg">
+    <span class="container" v-if="isImg" @click="this.count --;">
         <ImageLoader :image="this._value"/>
         <div class="bottom-right">{{count}}</div>    
     </span>    
