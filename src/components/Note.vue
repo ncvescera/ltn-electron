@@ -18,9 +18,6 @@ export default {
         items: Array,
        
     },
-    components: {
-    Resource
-}
 }
 </script>
 
